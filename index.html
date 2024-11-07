@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LESTARI WIDODO_SMB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        /* Mengatur jarak antar paragraf */
+        .lead {
+            margin-bottom: 0.3px;
+            /* Ubah nilai sesuai kebutuhan */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color:#bef526;">
+        <div class="container">
+            <a class="navbar-brand" href="#">STIKOM MUHAMMADIYAH BATAM</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="jumbotron text-center">
+        <img src="image\mancing.jpg" style="width: 300px;border: 5px solid rgb(255, 0, 0);" />
+        <h3>LESTARI WIDODO</h3><!-- Menggunakan h5 untuk ukuran yang lebih kecil -->
+        <h5>24010019</h5>
+        <p class="lead">Ini adalah halaman website sebagai bagian dari tugas Kuliah</p>
+        <p class="lead">Prodi : Teknik Informatika. Mata Kuliah : Algoritma dan Pemrograman.</p>
+        <p class="lead">KAMPUS STIKOM MUHAMMADIYAH BATAM</p>
+    </section>
+
+    <!-- About Section -->
+    <div class="container">
+        <h2>--------- MENU PROGRAM -------------------------------------------------------</h2>
+        <div class="row">
+            <!-- Konversi Suhu Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Konversi Suhu</h5>
+                        <P>Program untuk mengkonversi suhu dari CELCIUS (°C) ke FAHRENHEIT (°F).</P>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tempModal">
+                            Konversi Suhu
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Luas Persegi Panjang Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Luas Persegi Panjang</h5>
+                        <p>Adalah program kedua untuk mencari Luas Persegi Panjang.</p>
+                        <button type="button" class="btn btn-success" data-toggle="modal"
+                            data-target="#luasPersegiModal">
+                            Hitung Luas
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Luas Segitiga Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Mencari Luas Segitiga</h5>
+                        <p>Program untuk mencari Luas Segitiga.</p>
+                        <button type="button" class="btn btn-success" data-toggle="modal"
+                            data-target="#luassegitigaModal">
+                            Tampilkan Luas
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal untuk Conversi Suhu -->
+    <div class="modal fade" id="tempModal" tabindex="-1" role="dialog" aria-labelledby="tempModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tempModalLabel">Konversi Suhu Celcius ke Fahrenheit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="celcius">Masukkan Suhu (°Celcius):</label>
+                        <input type="number" id="celcius" class="form-control" placeholder="Contoh: 25" required>
+                    </div>
+                    <button class="btn btn-warning" onclick="convertSuhu()">Konversi</button>
+                    <div class="result mt-3" id="result1Temp"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk Luas Persegi Panjang -->
+    <div class="modal fade" id="luasPersegiModal" tabindex="-1" role="dialog" aria-labelledby="luasPersegiLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="luasPersegiLabel">Luas Persegi Panjang</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Masukkan Panjang dan Lebar:</p>
+                    <input type="number" id="panjang" placeholder="Panjang" class="form-control mb-2">
+                    <input type="number" id="lebar" placeholder="Lebar" class="form-control mb-2">
+                    <button type="button" class="btn btn-warning" onclick="hitungLuas()">Hitung</button>
+                    <div id="luasResult" class="mt-2"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk Luas Segitiga -->
+    <div class="modal fade" id="luassegitigaModal" tabindex="-1" role="dialog" aria-labelledby="luassegitigaLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="luassegitigaLabel">Luas Segitiga</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Masukkan Alas dan Tinggi:</p>
+                    <input type="number" id="alas" placeholder="Alas" class="form-control mb-2">
+                    <input type="number" id="tinggi" placeholder="Tinggi" class="form-control mb-2">
+                    <button type="button" class="btn btn-warning" onclick="hitungLuasSegitiga()">Hitung</button>
+                    <div id="result" class="mt-2"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Script untuk Conversi Suhu -->
+    <script>
+        function convertSuhu() {
+            const celcius = parseFloat(document.getElementById('celcius').value);
+            const fahrenheit = (celcius * 9 / 5) + 32;
+            document.getElementById('result1Temp').innerText = `Hasil Konversi = ${fahrenheit} °F`;
+        }
+    </script>
+
+    <!-- Script untuk Luas Persegi Panjang -->
+    <script>
+        function hitungLuas() {
+            const panjang = document.getElementById('panjang').value;
+            const lebar = document.getElementById('lebar').value;
+            const luas = panjang * lebar;
+            document.getElementById('luasResult').innerText = `Luas Persegi Panjang = ${luas}`;
+        }
+
+        document.getElementById('generateBtn').addEventListener('click', function () {
+            const rows = document.getElementById('rowInput').value;
+            let result = '';
+
+            for (let i = 1; i <= rows; i++) {
+                result += ' '.repeat(rows - i) + '* '.repeat(i) + '<br>';
+            }
+
+            document.getElementById('resultContent').innerHTML = result;
+            $('#resultModal').modal('show');
+        });
+    </script>
+
+    <!-- Script untuk Luas Segitiga -->
+    <script>
+        function hitungLuasSegitiga() {
+            // Ambil nilai alas dan tinggi dari input
+            var alas = parseFloat(document.getElementById("alas").value);
+            var tinggi = parseFloat(document.getElementById("tinggi").value);
+
+            // Validasi input
+            if (isNaN(alas) || isNaN(tinggi) || alas <= 0 || tinggi <= 0) {
+                document.getElementById("result").innerText = "Masukkan nilai yang valid!";
+                return;
+            }
+
+            // Hitung luas segitiga
+            var luas = 0.5 * alas * tinggi;
+
+            // Tampilkan hasil
+            document.getElementById("result").innerText = "Luas Segitiga adalah = " + luas.toFixed(1);
+        }
+    </script>
+
+
+</body>
+
+</html>
