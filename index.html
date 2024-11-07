@@ -41,7 +41,7 @@
             /* Position relative for animation */
             animation: scroll 20s linear infinite;
             /* Animation settings */
-            font-size: 30px;
+            font-size: 20px;
             /* Font size for running text */
             height: 35px;
             /* Set height for running text */
@@ -51,12 +51,12 @@
 
         @keyframes scroll {
             from {
-                transform: translateX(125%);
+                transform: translateX(110%);
                 /* Start from the right */
             }
 
             to {
-                transform: translateX(-125%);
+                transform: translateX(-100%);
                 /* End at the left */
             }
         }
@@ -97,7 +97,7 @@
             /* Menggeser section ke bawah */
         }
 
-        footer {
+        .copyright {
             text-align: center;
             /* Center text within the footer */
             padding: 10px;
@@ -113,7 +113,7 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color:#bef526;">
         <div class="container">
             <div class="running-text">
-                SELAMAT DATANG. Sekolah Tinggi Ilmu Komputer Muhammadiyah Batam
+                Selamat Datang! Sekolah Tinggi Ilmu Komputer Muhammadiyah Batam.
             </div>
             <!-- <a class="navbar-brand" href="#">STIKOM MUHAMMADIYAH BATAM</a> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -309,10 +309,9 @@
         }
     </script>
 
- <footer>
-        <p>&copy; 2024 by Lestari Widodo. All rights reserved.</p>
-    </footer>
+<div class="copyright">
+    <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+</div>
 
 </body>
-
 </html>
