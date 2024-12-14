@@ -15,63 +15,38 @@
     <style>
             /* Mengatur jarak antar paragraf */
       .lead {
-        margin-bottom: 0.3px;
+        margin-bottom: 0.1%;
         /* Ubah nilai sesuai kebutuhan */
       }
 
       .navbar-brand {
-        font-size: 30px;
+        font-size: 150%;
         /* Mengubah ukuran font */
-        line-height: 1.5;
+        line-height: 1;
         /* Mengubah tinggi baris */
-        padding: 0px 0;
+        padding: 0% 1%;
         /* Menambahkan padding atas dan bawah */
       }
 
       .card {
-        background-color: rgb(245, 237, 237);
+        background-color: rgb(108, 111, 116);
         /* Warna latar belakang kartu */
-        border: 5px solid #ccc;
+        border: 5px solid #8d2828;
         /* Garis batas */
         border-radius: 15px;
         /* Sudut melengkung */
-        box-shadow: 0 2px 10px rgba(238, 3, 3, 0.1);
+        box-shadow: 0 2px 10px rgba(211, 214, 10, 0.1);
         /* Bayangan */
         padding: 15px;
         /* Ruang di dalam kartu */
         width: 350px;
         /* Lebar kartu */
-        height: 210px;
-        /* Lebar kartu */
+        height: 150px;
+        /* tinggi kartu */
         margin-top: 2px;
         /* Jarak atas */
-      }
-
-      .running-text {
-        white-space: nowrap;
-        /* Prevent text from wrapping */
-        position: relative;
-        /* Position relative for animation */
-        animation: scroll 20s linear infinite;
-        /* Animation settings */
-        font-size: 20px;
-        /* Font size for running text */
-        height: 35px;
-        /* Set height for running text */
-        line-height: 30px;
-        /* Center text vertically within the height */
-      }
-
-      @keyframes scroll {
-        from {
-          transform: translateX(110%);
-          /* Start from the right */
-        }
-
-        to {
-          transform: translateX(-100%);
-          /* End at the left */
-        }
+        margin-left: 1%;
+        /* Jarak kiri */
       }
 
       .header {
@@ -88,7 +63,7 @@
       .section {
         background-color: rgb(114, 8, 8);
         /* Warna latar belakang section */
-        border: 1px solid #ccc;
+        border: 1px solid #df0a0a;
         /* Garis batas */
         border-radius: 8px;
         /* Sudut melengkung */
@@ -223,12 +198,12 @@
       /* CSS Rangkaian Seri / Parallel */
       
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 3%;
   color: #e61010c2;
 }
 
 .options {
-  margin-bottom: 20px;
+  margin-bottom: 10%;
 }
 
 button {
@@ -244,7 +219,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #1404a1;
 }
 
 .lamp-container {
@@ -291,8 +266,6 @@ button:hover {
 .toggle-button:hover {
   background-color: #06f53a;
 }
-
-
     </style>
   </head>
 
@@ -306,7 +279,7 @@ button:hover {
         <a
           class="navbar-brand"
           href="#"
-          style="font-family: 'Times New Roman', Times, serif; height: 35px"
+          style="font-family: 'Times New Roman', Times, serif; height: 25px"
           >STIKOM MUHAMMADIYAH BATAM</a
         >
         <button
@@ -362,21 +335,13 @@ button:hover {
                 class="card-title"
                 style="
                   font-family: 'Times New Roman', Times, serif;
-                  font-size: 160%;
-                  margin-top: -28px;
+                  font-size: 150%;
+                  margin-top: -20px;
                 "
               >
                 <b>Konversi Suhu</b>
               </h5>
-              <p
-                style="
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: 110%;
-                "
-              >
-                Program untuk mengkonversi suhu dari CELCIUS (°C) ke FAHRENHEIT
-                (°F).
-              </p>
+              
               <button
                 type="button"
                 class="btn btn-success"
@@ -397,20 +362,13 @@ button:hover {
                 class="card-title"
                 style="
                   font-family: 'Times New Roman', Times, serif;
-                  font-size: 160%;
+                  font-size: 150%;
                   margin-top: -28px;
                 "
               >
                 <b> Luas Persegi Panjang</b>
               </h5>
-              <p
-                style="
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: 110%;
-                "
-              >
-                Adalah program kedua untuk mencari Luas Persegi Panjang.
-              </p>
+              
               <button
                 type="button"
                 class="btn btn-success"
@@ -437,14 +395,7 @@ button:hover {
               >
                 <b>Mencari Luas Segitiga</b>
               </h5>
-              <p
-                style="
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: 110%;
-                "
-              >
-                Program untuk mencari Luas Segitiga.
-              </p>
+              
               <button
                 type="button"
                 class="btn btn-success"
@@ -471,14 +422,6 @@ button:hover {
               >
                 <b>Kipas Angin</b>
               </h5>
-              <p
-                style="
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: 110%;
-                "
-              >
-                Program Kipas Angin.
-              </p>
               <button
                 type="button"
                 class="btn btn-success"
@@ -504,14 +447,7 @@ button:hover {
               >
                 <b>Rangkaian Lampu.</b>
               </h5>
-              <p
-                style="
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: 110%;
-                "
-              >
-                Program Rangkaian Seri / Parallel.
-              </p>
+             
               <button
                 type="button"
                 class="btn btn-success"
@@ -920,7 +856,6 @@ parallelButton.addEventListener("click", () => {
     lampContainer.appendChild(button);
   }
 });
-
     </script>
 
      </body>
