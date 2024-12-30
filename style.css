@@ -1,7 +1,95 @@
+:root {
+  /* untuk nama bebas, saat memanggil harus sama, ex. primary, bg=background*/
+  --primary: #c5823f;
+  --bg: #464141;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--bg);
+  color: #f7f3f3;
+}
+
+.modal-content {
+background-color: var(--bg);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 7%;
+  background-color: rgba(32, 27, 27, 0.8);
+  border-bottom: 2px solid var(--primary);
+  position: fixed;
+}
+
+/* warna dan ukuran logo Kopi Kenangan*/
+.navbar .navbar-logo {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #f07e20;
+}
+
+/* Warna Tulisan Kenangan - span pd html */
+.navbar .navbar-logo span {
+  color: var(--primary);
+  font-style: italic;
+}
+
+/* Navigasi Bar - Home, Tentang, Menu, Kontak */
+.navbar .navbar-nav a {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 1rem;
+}
+
+/* Warna Tulisan Navigasi Ketika Mouse menyentuhnya */
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+/* Warna dan ukuran garis bawah Tulisan navbar */
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+/* Panjang garis bawah navbar */
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+/* Warna Navbar extra - search, shopping cart, hamburger menu */
+.navbar .navbar-extra a {
+  color: #f1f0f0;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+
+#hamburger-menu {
+  display: flex;
+}
+
 .jumbotron {
-  padding-top: 5rem;
-  padding-bottom: 3rem;
-  background-color: #dad5d4;
+  padding-top: 6rem;
+  padding-bottom: 10rem;
 }
 
 .jumbotron h1 {
@@ -9,29 +97,27 @@
     0px 0px 16px orangered;
 
   font-size: 50px;
-  color: #251206;
+  color: #fcf6f3;
 }
 
 #about {
   padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-bottom: 6rem;
 }
 
 #tugas {
   padding-top: 4rem;
-  background-color: #dad5d4;
-  padding-bottom: 4rem;
+  padding-bottom: 6rem;
 }
 
 #gambar {
   padding-top: 4rem;
-  padding-bottom: 9rem;
+  padding-bottom: 6rem;
 }
 
 #contact {
   padding-top: 4rem;
-  background-color: #dad5d4;
-  padding-bottom: 18%;
+  padding-bottom: 22%;
 }
 
 /* CSS untuk Lampu Seri dan Parallel */
@@ -68,7 +154,7 @@
   position: absolute;
   width: 50%;
   height: 40px;
-  background-color: #03a303;
+  background-color: #f3f5f3;
   top: 33%;
   left: 50%;
   border-radius: 50%;
@@ -153,4 +239,83 @@
   border-radius: 5%;
   background-color: #0e920e;
   color: #ffff;
+}
+
+/* Media Queries */
+
+/* 1. Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+/* 2. Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+  #hamburger-menu {
+    display: inline-block;
+  }
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #646363;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: #0a0a0a;
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover:after {
+    transform: scaleX(0.2);
+  }
+
+  /* konfigurasi tulisan, ketika di Hp pindah ke bawah */
+  .about .row {
+    flex-wrap: wrap;
+  }
+
+  /* konfigurasi image about content */
+  .about .row .about-img img {
+    height: 30rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .about .row .content {
+    padding: 0;
+  }
+
+  .about .row .content h3 {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+
+  .about .row .content p {
+    font-size: 1.6rem;
+  }
+}
+
+/* 3. Mobile Phone */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
 }
