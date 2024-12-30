@@ -26,6 +26,14 @@
     <!-- AOS (Animasi on Scroll) -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+      
     <!-- My CSS / manual CSS -->
     <link rel="stylesheet" href="style.css" />
 
@@ -37,11 +45,9 @@
     <!-- Navbar Start -->
     <nav
       class="navbar navbar-expand-sm shadow-lg border-bottom border-body fixed-top"
-      data-bs-theme="dark"
-      style="background-color: #212ff3"
-    >
+      data-bs-theme="dark">
       <div class="container">
-        <a class="navbar-brand" href="#">SMB</a>
+        <a class="navbar-logo" href="#">SMB</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -72,8 +78,15 @@
             </li>
           </ul>
         </div>
+        <div class="navbar-extra">
+          <a href="#" id="search"><i data-feather="search"></i></a>
+          <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+          <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
+  
       </div>
     </nav>
+        
     <!-- Navbar End -->
 
     <!-- Section Jumbotron Start / Halaman Utama-->
@@ -103,7 +116,7 @@
       <div class="container">
         <div class="row text-center mb-3">
           <div class="col">
-            <h2>About Me</h2>
+            <h2><span>Tentang </span>Kami</h2>
           </div>
         </div>
 
@@ -147,7 +160,7 @@
       <div class="container">
         <div class="row text-center mb-3">
           <div class="col">
-            <h2>Tugas</h2>
+            <h2><span>Tugas </span>Belajar</h2>
           </div>
         </div>
         <div class="row justify-content-center">
@@ -625,7 +638,7 @@
               <button type="button" id="parallelButton" class="btn btn-primary">
                 Lampu Paralel
               </button>
-              <div id="lampContainer" class="mt-3"></div>
+              <div id="lampContainer" class="mt-"></div>
             </div>
           </div>
         </div>
@@ -677,6 +690,18 @@
     </footer>
     <!-- Footer  End / Halaman Footer -->
 
+
+<!-- SCRIPT URL -->
+
+    <!-- Feather Icons Script -->
+    <script>
+    feather.replace();
+        </script>
+    
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
     <!-- Script Start Untuk Modal / Formula di JS Link to JavaScript file-->
     <script src="script.js"></script>
 
@@ -708,7 +733,7 @@
 
       AOS.init({
         // once: true,
-        duration: 2000,
+        // duration: 2000,
       });
     </script>
     <!-- Script End untuk AOS CSS -->
