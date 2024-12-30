@@ -1,564 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LESTARI WIDODO_SMB</title>
+
+    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb"
+      crossorigin="anonymous"
     />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <style>
-            /* Mengatur jarak antar paragraf */
-      .lead {
-        margin-bottom: 0.1%;
-        /* Ubah nilai sesuai kebutuhan */
-      }
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"/>
 
-      .navbar-brand {
-        font-size: 142%;
-        /* Mengubah ukuran font */
-        line-height: 1;
-        /* Mengubah tinggi baris */
-        padding: 0% 0.1%;
-        /* Menambahkan padding atas dan bawah */
-      }
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 
-      .card {
-        background-color: rgb(108, 111, 116);
-        /* Warna latar belakang kartu */
-        border: 5px solid #8d2828;
-        /* Garis batas */
-        border-radius: 15px;
-        /* Sudut melengkung */
-        box-shadow: 0 2px 10px rgba(211, 214, 10, 0.1);
-        /* Bayangan */
-        padding: 15px;
-        /* Ruang di dalam kartu */
-        width: 350px;
-        /* Lebar kartu */
-        height: 150px;
-        /* tinggi kartu */
-        margin-top: 2px;
-        /* Jarak atas */
-        margin-left: 1%;
-        /* Jarak kiri */
-      }
+    <!-- AOS (Animasi on Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-      .header {
-        background-color: #4d08ee;
-        /* Warna latar belakang header */
-        color: rgb(112, 11, 11);
-        /* Warna teks */
-        text-align: center;
-        /* Teks di tengah */
-        padding: 20px;
-        /* Ruang di dalam header */
-      }
+    <!-- My CSS / manual CSS -->
+    <link rel="stylesheet" href="style.css" />
 
-      .section {
-        background-color: rgb(114, 8, 8);
-        /* Warna latar belakang section */
-        border: 1px solid #df0a0a;
-        /* Garis batas */
-        border-radius: 8px;
-        /* Sudut melengkung */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        /* Bayangan */
-        padding: 20px;
-        /* Ruang di dalam section */
-        margin: 20px;
-        /* Jarak antara section */
-        max-width: 800px;
-        /* Lebar maksimum section */
-        margin-left: auto;
-        /* Mengatur margin kiri otomatis */
-        margin-right: auto;
-        /* Mengatur margin kanan otomatis */
-        position: relative;
-        /* Posisi relatif untuk kontrol lebih lanjut */
-        top: 20px;
-        /* Menggeser section ke bawah */
-      }
+    <!-- Optional: Link to CSS file -->
 
-     
-      /* CSS Untuk Kipas Angin */
-
-      .fan-container {
-        text-align: center;
-      }
-
-      .fan {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        margin-left: 29%;
-        border: 5px double #260cbd;
-        border-radius: 50%;
-        margin-bottom: 2px;
-        overflow: hidden;
-      }
-
-      .blade {
-        position: absolute;
-        width: 50%;
-        height: 40px;
-        background-color: #333;
-        top: 33%;
-        left: 50%;
-        border-radius: 50%;
-        transform-origin: 0% 80%;
-        transition: transform 0.1s linear, opacity 0.5s ease; /* Tambahkan transisi untuk opacity */
-        opacity: 1; /* Mulai dengan bilah tidak terlihat */
-      }
-
-      .blade.visible {
-        opacity: 0;
-      }
-
-      #blade1 {
-        transform: rotate(0deg);
-      }
-      #blade2 {
-        transform: rotate(120deg);
-      }
-      #blade3 {
-        transform: rotate(240deg);
-      }
-
-      .controls {
-        margin-top: 5%;
-      }
-
-      .toggle-button {
-        padding: 5px 20px;
-        border: rounded;
-        top: 20%;
-        background-color: #0665f5;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s, transform 0.2s;
-      }
-
-      .toggle-button.on {
-        background-color: #28a745; /* Warna hijau (ON) */
-      }
-
-      .toggle-button.off {
-        background-color: #808080; /* Warna abu-abu (OFF) */
-      }
-
-      .toggle-button:hover {
-        background-color: #0056b3;
-      }
-
-      .toggle-button:active {
-        transform: scale(0.95);
-      }
-
-      .speed-controls {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .speedButton {
-        position: bottom;
-        padding: 5px 15px;
-        border: rounded;
-        background-color: #ff8800;
-        color: white;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-      }
-
-      .speedButton:hover {
-        background-color: #00b327;
-      }
-
-      .speedButton.active {
-        background-color: #05f33d; /* Warna saat tombol aktif */
-      }
-
-      .clock {
-        font-size: 35px;
-        font-weight: bold;
-        border-style: double;
-        border-radius: 5%;
-        background-color: #0e920e;
-        color: #ffff;
-      }
-      /* CSS Rangkaian Seri / Parallel */
-      
-h1 {
-  margin-bottom: 3%;
-  color: #e61010c2;
-}
-
-.options {
-  margin-bottom: 10%;
-}
-
-button {
-  padding: 10px 20px;
-  border: solid;
-  background-color: #007bff;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 0 10px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #1404a1;
-}
-
-.lamp-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.lamp {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  opacity: 0.1;
-  transition: opacity 0.3s;
-  border: 4px solid #333;
-}
-
-.lamp.on {
-  opacity: 1;
-}
-
-.lamp.series {
-  background-color: #ff0000; /* Warna untuk rangkaian seri */
-}
-
-.lamp.parallel {
-  background-color: #ff0000; /* Warna untuk rangkaian paralel */
-}
-
-.toggle-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #04fa3e;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.toggle-button:hover {
-  background-color: #06f53a;
-}
-    </style>
+    <title>My Portfolio | Lestari Widodo</title>
   </head>
-
-  <body>
-    <!-- Navbar -->
+  <body id="home">
+    <!-- Navbar Start -->
     <nav
-      class="navbar navbar-expand-lg navbar-light shadow-sm"
-      style="background-color: #bef526"
+      class="navbar navbar-expand-sm shadow-lg border-bottom border-body fixed-top"
+      data-bs-theme="dark"
+      style="background-color: #212ff3"
     >
       <div class="container">
-        <a
-          class="navbar-brand"
-          href="#"
-          style="font-family: 'Times New Roman', Times, serif; height: 25px"
-          >STIKOM MUHAMMADIYAH BATAM</a
-        >
+        <a class="navbar-brand" href="#">SMB</a>
         <button
           class="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse fw-bold active" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tugas">Tugas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gambar">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
+    <!-- Navbar End -->
 
-    <!-- Home Section -->
+    <!-- Section Jumbotron Start / Halaman Utama-->
     <section class="jumbotron text-center">
       <img
-        src="image\mancing.jpg"
-        style="width: 285px; height: 180px; border: 5px solid rgb(255, 0, 0)"
+        src="img/1.jpg"
+        alt="Lestari"
+        width="300"
+        class="rounded-circle img-thumbnail border-primary border-2"
       />
-      <h3 style="font-family: 'Times New Roman', Times, serif">
-        LESTARI WIDODO
-      </h3>
-      <!-- Menggunakan h5 untuk ukuran yang lebih kecil -->
-      <h5 style="font-family: 'Times New Roman', Times, serif">NIM: 24010019</h5>
-      <p class="lead" style="font-family: 'Times New Roman', Times, serif">
-        Ini adalah halaman website sebagai bagian dari tugas Kuliah.  Prodi : Teknik Informatika. Mata Kuliah : Algoritma dan Pemrograman.
-      </p>
-      <p class="lead" style="font-family: 'Times New Roman', Times, serif">
-        KAMPUS STIKOM MUHAMMADIYAH BATAM
-      </p>
+      <h1 class="display-4 fw-normal"></h1>
+      <p class="lead fw-normal"></p>
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220">
+        <path
+          fill="#ffffff"
+          fill-opacity="1"
+          d="M0,192L120,202.7C240,213,480,235,720,240C960,245,1200,235,1320,229.3L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+        ></path>
+      </svg> -->
     </section>
 
-    <!-- About Section -->
-    <div class="container">
-      <h3 style="font-family: 'Times New Roman', Times, serif; font-size: 160%">
-        <b
-          >ALGORITMA & <br />
-          PEMROGRAMAN</b
-        >
-      </h3>
-      <div class="row">
-        <!-- Konversi Suhu Card -->
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5
-                class="card-title"
-                style="
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: 150%;
-                  margin-top: -20px;
-                "
-              >
-                <b>Konversi Suhu</b>
-              </h5>
-              
-              <button
-                type="button"
-                class="btn btn-success"
-                data-toggle="modal"
-                data-target="#tempModal"
-              >
-                Konversi Suhu
-              </button>
-            </div>
+    <!-- https://www.youtube.com/watch?v=LkR-9Z1sle8&list=PLFIM0718LjIV46XyERoDIlBWl2tMmmm8X menit=41:55 -->
+    <!-- Jumbotron End -->
+
+    <!-- Section About Start / Halaman about -->
+    <section id="about">
+      <div class="container">
+        <div class="row text-center mb-3">
+          <div class="col">
+            <h2>About Me</h2>
           </div>
         </div>
 
-        <!-- Luas Persegi Panjang Card -->
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5
-                class="card-title"
-                style="
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: 150%;
-                  margin-top: -28px;
-                "
-              >
-                <b> Luas Persegi Panjang</b>
-              </h5>
-              
-              <button
-                type="button"
-                class="btn btn-success"
-                data-toggle="modal"
-                data-target="#luasPersegiModal"
-              >
-                Hitung Luas
-              </button>
-            </div>
+        <div class="row justify-content-center fs-5 text-center">
+          <div class="col-md-4" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">
+            <p1 class="fw-bold fs-3"> Freelance. </p1>
+            <p>
+              Saat ini bekerja sebagai seorang Freelancer yang tidak mempunyai ikatan dengan
+              perusahaan. Sehingga mempunyai kebebasan untuk memilih proyek yang diambil. Freelancer
+              bersifat sementara berdasarkan kontrak.
+            </p>
           </div>
+          <div class="col-md-4" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="200">
+            <p1 class="fw-bold fs-3"> Entrepreneur. </p1>
+            <p>
+              Sedang belajar mengembangkan usaha untuk memenuhi kebutuhan perusahaan dalam bentuk
+              suku cadang. Memberikan pelayanan terbaik bagi konsumen dan menciptakan iklim usaha
+              yang kondusif dan beretika.
+            </p>
+          </div>          
+          <div class="col-md-4" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="200">
+            <p1 class="fw-bold fs-3"> Student. </p1>
+            <p>
+              Selain bekerja, saat ini juga sedang belajar ilmu Teknologi Informasi berbasis Coding yang berkaitan dengan pekerjaan.              
+            </p>
+          </div>          
         </div>
+      </div>
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+        <path
+          fill="#dad5d4"
+          fill-opacity="1"
+          d="M0,96L80,96C160,96,320,96,480,101.3C640,107,800,117,960,112C1120,107,1280,85,1360,74.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg> -->
+    </section>
+    <!-- Section About End / Halaman About Me -->
 
-        <!-- Luas Segitiga Card -->
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5
-                class="card-title"
-                style="
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: 160%;
-                  margin-top: -30px;
-                "
-              >
-                <b>Mencari Luas Segitiga</b>
-              </h5>
-              
-              <button
-                type="button"
-                class="btn btn-success"
-                data-toggle="modal"
-                data-target="#luassegitigaModal"
-              >
-                Tampilkan Luas
-              </button>
-            </div>
+    <!-- Section Tugas Start / Halaman Tugas -->
+    <section id="tugas">
+      <div class="container">
+        <div class="row text-center mb-3">
+          <div class="col">
+            <h2>Tugas</h2>
           </div>
         </div>
+        <div class="row justify-content-center">
+          <div class="col-md-3 mb-3">
+            <!-- CARD Konversi Suhu -->
+            <div
+              class="card"
+              data-aos="flip-left"
+              data-aos-duration="1500"
+              data-aos-delay="200"
+              style="width: 18rem"
+            >
+              <img src="img/tugas/thermometer.jpg" class="card-img-top" alt="Thermometer" />
+              <div class="card-body">
+                <h5 class="card-title">Konversi Suhu</h5>
+                <p class="card-text"></p>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#suhuModal"
+                >
+                  Tampilkan
+                </button>
 
-        <!-- Kipas Angin-->
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5
-                class="card-title"
-                style="
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: 160%;
-                  margin-top: -30px;
-                "
-              >
-                <b>Kipas Angin</b>
-              </h5>
-              <button
-                type="button"
-                class="btn btn-success"
-                data-toggle="modal"
-                data-target="#kipasanginModal"
-              >
-                Tampilkan.
-              </button>
+                <!-- <a href="suhuModal" class="btn btn-primary">Tampilkan</a> -->
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Lampu Seri atau Parallel-->
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5
-                class="card-title"
-                style="
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: 160%;
-                  margin-top: -30px;
-                "
-              >
-                <b>Rangkaian Lampu.</b>
-              </h5>
-             
-              <button
-                type="button"
-                class="btn btn-success"
-                data-toggle="modal"
-                data-target="#lampuModal"
-              >
-                Tampilkan.
-              </button>
+
+          <!-- CARD Luas Segitiga -->
+          <div class="col-md-3 mb-3">
+            <div
+              class="card"
+              data-aos="flip-left"
+              data-aos-duration="1500"
+              data-aos-delay="200"
+              style="width: 18rem"
+            >
+              <img src="img/tugas/segitiga.jpg" class="card-img-top" alt="segitiga" />
+              <div class="card-body">
+                <h5 class="card-title">Luas Segitiga</h5>
+                <p class="card-text"></p>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#segitigaModal"
+                >
+                  Tampilkan
+                </button>
+
+                <!-- <a href="#" class="btn btn-primary">Tampilkan</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD Persegi Panjang -->
+          <div class="col-md-3 mb-3">
+            <div
+              class="card"
+              data-aos="flip-left"
+              data-aos-duration="1500"
+              data-aos-delay="200"
+              style="width: 18rem"
+            >
+              <img src="img/tugas/persegi.jpg" class="card-img-top" alt="persegi" />
+              <div class="card-body">
+                <h5 class="card-title">Luas Persegi Panjang</h5>
+                <p class="card-text"></p>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#persegiModal"
+                >
+                  Tampilkan
+                </button>
+                <!-- <a href="#" class="btn btn-primary">Tampilkan</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD Lampu Seri/Parallel -->
+          <div class="col-md-3 mb-3">
+            <div
+              class="card"
+              data-aos="flip-left"
+              data-aos-duration="1500"
+              data-aos-delay="200"
+              style="width: 18rem"
+            >
+              <img src="img/tugas/lampu.jpg" class="card-img-top" alt="lampu" />
+              <div class="card-body">
+                <h5 class="card-title">Rangkaian Lampu</h5>
+                <p class="card-text"></p>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#lampuModal"
+                >
+                  Tampilkan.
+                </button>
+                <!-- <a href="#" class="btn btn-primary">Tampilkan</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD Kipas Angin  -->
+          <div class="col-md-3 mb-3">
+            <div
+              class="card"
+              data-aos="flip-left"
+              data-aos-duration="1500"
+              data-aos-delay="200"
+              style="width: 18rem"
+            >
+              <img src="img/tugas/kipas.jpg" class="card-img-top" alt="kipas" />
+              <div class="card-body">
+                <h5 class="card-title">Kipas Angin</h5>
+                <p class="card-text"></p>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#kipasModal"
+                >
+                  Tampilkan
+                </button>
+                <!-- <a href="#" class="btn btn-primary">Tampilkan</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD Database  -->
+          <div class="col-md-3 mb-3">
+            <div
+              class="card"
+              data-aos="flip-left"
+              data-aos-duration="1500"
+              data-aos-delay="200"
+              style="width: 18rem"
+            >
+              <img src="img/tugas/server.jpg" class="card-img-top" alt="server" />
+              <div class="card-body">
+                <h5 class="card-title">Database</h5>
+                <p class="card-text">( On Progress ) </p>
+                <!-- <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#dbModal"
+                >
+                  Tampilkan.
+                </button> -->
+                <!-- <a href="https://www.youtube.com/watch?v=gvkr2V-JULE&t=304s" class="btn btn-primary">Tampilkan</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD Evaluasi Jawaban -->
+          <div class="col-md-3 mb-3">
+            <div
+              class="card"
+              data-aos="flip-left"
+              data-aos-duration="1500"
+              data-aos-delay="200"
+              style="width: 18rem"
+            >
+              <img src="img/tugas/hardisk.jpg" class="card-img-top" alt="hardisk" />
+              <div class="card-body">
+                <h5 class="card-title">Auto Koreksi</h5>
+                <p class="card-text">( On Progress ) </p>
+                <!-- <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#dbModal"
+                >
+                  Tampilkan.
+                </button> -->
+                <!-- <a href="https://www.youtube.com/watch?v=gvkr2V-JULE&t=304s" class="btn btn-primary">Tampilkan</a> -->
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+        <path
+          fill="#ffff"
+          fill-opacity="1"
+          d="M0,96L80,96C160,96,320,96,480,101.3C640,107,800,117,960,112C1120,107,1280,85,1360,74.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg> -->
+    </section>
+    <!-- Section Tugas End / Halaman Tugas -->
+
+    <!-- Section Gallery Start / Halaman Gallery -->
+    <section id="gambar">
+      <div class="container">
+        <div class="row text-center mb-5">
+          <div class="col">
+            <h2>Gallery</h2>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-3 mb-3">
+            <a href="#">
+              <img
+                src="img\galery\thumbnail\keyboard.jpg"
+                alt="keyboard"
+                class="img-fluid gallery-img"
+              />
+            </a>
+          </div>
+          <div class="col-md-3 mb-3">
+            <a href="#">
+              <img
+                src="img\galery\thumbnail\laptop.jpg"
+                alt="laptop"
+                class="img-fluid gallery-img"
+              />
+            </a>
+          </div>
+          <div class="col-md-3 mb-3">
+            <a href="#">
+              <img
+                src="img\galery\thumbnail\monitor.jpg"
+                alt="monitor"
+                class="img-fluid gallery-img"
+              />
+            </a>
+          </div>
+          <div class="col-md-3 mb-3">
+            <a href="#">
+              <img
+                src="img\galery\thumbnail\trading.jpg"
+                alt="trading"
+                class="img-fluid gallery-img"
+              />
+            </a>
+          </div>
+          <div class="col-md-3 mb-3">
+            <a href="#">
+              <img src="img\galery\thumbnail\hack.jpg" alt="hack" class="img-fluid gallery-img" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section Gallery Start / Halaman Gallery -->
+
+    <!-- Section Contact Start / Halaman Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="row text-center mb-3">
+          <div class="col">
+            <h2>Contact Me</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+          <div class="col-md-6">
+            <div
+              class="alert alert-success alert-dismissible fade show d-none my-alert"
+              role="alert"
+            >
+              <strong>Terima Kasih.</strong> Pesan anda sudah kami terima.
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+            <form name="portfolio_widodo_contact_pesan">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name :</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  aria-describedby="name"
+                  name="nama"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email :</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  aria-describedby="email"
+                  name="email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="pesan" class="form-label">Pesan :</label>
+                <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
+              <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Loading...
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 290">
+        <path
+          fill="#0d6efd"
+          fill-opacity="1"
+          d="M0,160L80,186.7C160,213,320,267,480,282.7C640,299,800,277,960,266.7C1120,256,1280,256,1360,256L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg> -->
+    </section>
+    <!-- menit 1:08:53 -->
+    <!-- Section Contact End / Halaman Contact -->
+
+
 
     <!--MODAL untuk Program -->
     <!-- Modal untuk Conversi Suhu -->
     <div
       class="modal fade"
-      id="tempModal"
+      id="suhuModal"
       tabindex="-1"
-      role="dialog"
-      aria-labelledby="tempModalLabel"
+      aria-labelledby="suhuModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="tempModalLabel">
-              Konversi Suhu Celcius ke Fahrenheit
+            <h5 class="modal-title fw-bold" id="suhuModalLabel">
+              Konversi Celcius ke Fahrenheits.
             </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label for="celcius">Masukkan Suhu (°Celcius):</label>
+              <label for="celcius">Masukkan Suhu (°Celcius) :</label>
               <input
                 type="number"
                 id="celcius"
                 class="form-control"
-                placeholder="Contoh: 25"
+                placeholder="Contoh: 25°C"
                 required
               />
             </div>
-            <button class="btn btn-warning" onclick="convertSuhu()">
+            <button
+            type=""
+              id="convertButton"
+              class="btn btn-primary mt-3"
+              onclick="convertToFahrenheit()"
+            >
               Konversi
             </button>
-            <div class="result mt-3" id="result1Temp"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal untuk Luas Persegi Panjang -->
-    <div
-      class="modal fade"
-      id="luasPersegiModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="luasPersegiLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="luasPersegiLabel">
-              Luas Persegi Panjang
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>Masukkan Panjang dan Lebar:</p>
-            <input
-              type="number"
-              id="panjang"
-              placeholder="Panjang"
-              class="form-control mb-2"
-            />
-            <input
-              type="number"
-              id="lebar"
-              placeholder="Lebar"
-              class="form-control mb-2"
-            />
-            <button
-              type="button"
-              class="btn btn-warning"
-              onclick="hitungLuas()"
-            >
-              Hitung
-            </button>
-            <div id="luasResult" class="mt-2"></div>
+            <div class="result mt-4 fw-bold" id="result1Temp"></div>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -567,82 +522,130 @@ button:hover {
     <!-- Modal untuk Luas Segitiga -->
     <div
       class="modal fade"
-      id="luassegitigaModal"
+      id="segitigaModal"
       tabindex="-1"
-      role="dialog"
-      aria-labelledby="luassegitigaLabel"
+      aria-labelledby="segitigaModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="luassegitigaLabel">Luas Segitiga</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <h5 class="modal-title fw-bold" id="segitigaLabel">Menghitung Luas Segitiga.</h5>
           </div>
           <div class="modal-body">
-            <p>Masukkan Alas dan Tinggi:</p>
-            <input
-              type="number"
-              id="alas"
-              placeholder="Alas"
-              class="form-control mb-2"
-            />
-            <input
-              type="number"
-              id="tinggi"
-              placeholder="Tinggi"
-              class="form-control mb-2"
-            />
+            <p>Masukkan Alas dan Tinggi :</p>
+            <div class="form-group">
+              <input
+                type="number"
+                id="alas"
+                placeholder="Alas"
+                class="form-control mb-2"
+                required
+              />
+
+              <input type="number" id="tinggi" placeholder="Tinggi" class="form-control mb-2" />
+            </div>
             <button
               type="button"
-              class="btn btn-warning"
+              id="convertButton"
+              class="btn btn-primary mt-3"
               onclick="hitungLuasSegitiga()"
             >
               Hitung
             </button>
-            <div id="result" class="mt-2"></div>
+            <div class="result mt-4 fw-bold" id="resultsegitiga"></div>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Modal untuk Luas Persegi Panjang -->
+    <div
+      class="modal fade"
+      id="persegiModal"
+      tabindex="-1"
+      aria-labelledby="persegiModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="persegiLabel">Menghitung Luas Persegi Panjang.</h5>
+          </div>
+          <div class="modal-body">
+            <p>Masukkan Panjang dan Lebar :</p>
+            <div class="form-group">
+              <input
+                type="number"
+                id="panjang"
+                placeholder="Panjang"
+                class="form-control mb-2"
+                required
+              />
+              <input type="number" id="lebar" placeholder="Lebar" class="form-control mb-2" />
+            </div>
+            <button
+              type="button"
+              id="generateBtn"
+              class="btn btn-primary mt-3"
+              onclick="hitungLuasPersegi()"
+            >
+              Hitung
+            </button>
+            <div class="result mt-4 fw-bold" id="resultpersegi"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal untuk Lampu Seri dan Parallel -->
+    <div
+      class="modal fade"
+      id="lampuModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="lampuLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="lampuLabel">Rangkaian Seri/Parallel</h5>
+            <div class="container">
+              <h1>Rangkaian Lampu</h1>
+              <button type="button" id="seriesButton" class="btn btn-primary">
+                Lampu Seri
+              </button>
+              <button type="button" id="parallelButton" class="btn btn-primary">
+                Lampu Paralel
+              </button>
+              <div id="lampContainer" class="mt-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
     <!-- Modal untuk Kipas Angin -->
     <div
       class="modal fade"
-      id="kipasanginModal"
+      id="kipasModal"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="kipasanginLabel"
+      aria-labelledby="kipasLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="kipasanginLabel">Kipas Angin</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <h5 class="modal-title" id="kipasLabel">Kipas Angin</h5>
           </div>
           <div class="fan-container">
             <div class="fan">
@@ -651,7 +654,7 @@ button:hover {
               <div class="blade" id="blade3"></div>
             </div>
             <div class="controls">
-              <button id="toggleButton" class="toggle-button">ON</button>
+              <button type="button" id="toggleButton" class="toggle-button">ON</button>
               <div class="speed-controls">
                 <button class="speedButton" data-speed="1">1</button>
                 <button class="speedButton" data-speed="2">2</button>
@@ -664,196 +667,99 @@ button:hover {
       </div>
     </div>
 
-    <!-- Modal untuk Rangkaian Seri / Parallel -->
-    <div
-      class="modal fade"
-      id="lampuModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="lampuLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="lampuLabel">Rangkaian Seri / Parallel</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <div class="container">
-              <h1>Rangkaian Lampu</h1>
-              <div class="options">
-                <button id="seriesButton">Rangkaian Seri</button>
-                <button id="parallelButton">Rangkaian Paralel</button>
-              </div>
-              <div id="lampContainer" class="lamp-container"></div>
-            </div>
-        
-        </div>
-      </div>
-    </div>
+    <!-- Footer  Start / Halaman Footer -->
+    <footer class="bg-primary text-white text-center pb-1">
+          <p>
+            Create with <i class="bi bi-heart-fill text-danger"></i> by
+            <a href="https://www.instagram.com/" class="text-white fw-bold">Ngopi-Code</a>
+          </p>
+          <p>&copy; <span id="year">2024 by</span> Lestari Widodo. All rights reserved.</p>
+    </footer>
+    <!-- Footer  End / Halaman Footer -->
 
-    <!--Script untuk Conversi Suhu -->
-    <script>
-      function convertSuhu() {
-        const celcius = parseFloat(document.getElementById("celcius").value);
-        const fahrenheit = (celcius * 9) / 5 + 32;
-        document.getElementById(
-          "result1Temp"
-        ).innerText = `Hasil Konversi = ${fahrenheit} °F`;
-      }
+    <!-- Script Start Untuk Modal / Formula di JS Link to JavaScript file-->
+    <script src="script.js"></script>
+
+    <!-- Option 1: Bootstrap Start Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+      
     </script>
 
-    <!-- Script untuk Luas Persegi Panjang -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Option 1: Bootstrap End Bundle with Popper -->
+
+    <!-- Sript Start untuk AOS CSS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      function hitungLuas() {
-        const panjang = document.getElementById("panjang").value;
-        const lebar = document.getElementById("lebar").value;
-        const luas = panjang * lebar;
-        document.getElementById(
-          "luasResult"
-        ).innerText = `Luas Persegi Panjang = ${luas}`;
-      }
+      const galleryImage = document.querySelectorAll(".gallery-img");
 
-      document
-        .getElementById("generateBtn")
-        .addEventListener("click", function () {
-          const rows = document.getElementById("rowInput").value;
-          let result = "";
-
-          for (let i = 1; i <= rows; i++) {
-            result += " ".repeat(rows - i) + "* ".repeat(i) + "<br>";
-          }
-
-          document.getElementById("resultContent").innerHTML = result;
-          $("#resultModal").modal("show");
-        });
-    </script>
-
-    <!-- Script untuk Luas Segitiga -->
-    <script>
-      function hitungLuasSegitiga() {
-        // Ambil nilai alas dan tinggi dari input
-        var alas = parseFloat(document.getElementById("alas").value);
-        var tinggi = parseFloat(document.getElementById("tinggi").value);
-
-        // Validasi input
-        if (isNaN(alas) || isNaN(tinggi) || alas <= 0 || tinggi <= 0) {
-          document.getElementById("result").innerText =
-            "Masukkan nilai yang valid!";
-          return;
-        }
-
-        // Hitung luas segitiga
-        var luas = 0.5 * alas * tinggi;
-
-        // Tampilkan hasil
-        document.getElementById("result").innerText =
-          "Luas Segitiga adalah = " + luas.toFixed(1);
-      }
-    </script>
-    <!-- Script untuk Kipas Angin -->
-    <script>
-      let isOn = false;
-      let speed = 0; // 0 means off, 1 means slow, 2 means medium, 3 means fast
-      let interval;
-      const blades = document.querySelectorAll(".blade");
-      const toggleButton = document.getElementById("toggleButton");
-      const speedButtons = document.querySelectorAll(".speedButton");
-      const clockElement = document.getElementById("clock");
-
-      toggleButton.addEventListener("click", () => {
-        isOn = !isOn;
-        toggleButton.textContent = isOn ? "OFF" : "ON";
-        if (isOn) {
-          startFan();
-        } else {
-          stopFan();
-        }
+      galleryImage.forEach((img, i) => {
+        img.dataset.aos = "fade-down";
+        img.dataset.aosDelay = i * 800;
+        img.dataset.aosDuration = 1500;
       });
 
-      speedButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
-          if (isOn) {
-            speed = parseInt(event.target.getAttribute("data-speed"));
-            stopFan();
-            startFan();
-          }
-        });
+      AOS.init({
+        // once: true,
+        duration: 2000,
       });
-
-      function startFan() {
-        let rotation = 0;
-        blades.forEach((blade) => blade.classList.remove("visible")); // Sembunyikan bilah saat kipas menyala
-        interval = setInterval(() => {
-          rotation += speed * 40; // Adjust speed multiplier as needed
-          blades.forEach((blade, index) => {
-            blade.style.transform = `rotate(${rotation + index * 120}deg)`;
-          });
-        }, 100);
-      }
-
-      function stopFan() {
-        clearInterval(interval);
-        blades.forEach((blade) => {
-          blade.style.transform = "rotate(0deg)";
-          blade.classList.add("visible"); // Tampilkan bilah saat kipas berhenti
-        });
-      }
-
-      function updateClock() {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, "0");
-        const minutes = String(now.getMinutes()).padStart(2, "0");
-        const seconds = String(now.getSeconds()).padStart(2, "0");
-        clockElement.textContent = `${hours}:${minutes}:${seconds}`;
-      }
-
-      setInterval(updateClock, 1000);
-      updateClock(); // Initial call to set the clock immediately
     </script>
-  <!-- Script untuk Rangkaian Seri / Parallel -->
+    <!-- Script End untuk AOS CSS -->
+
+    <!-- Script GSAP Animation Start-->
+    <!-- https://gsap.com/docs/v3/Installation/?tab=cdn&module=esm&method=private+registry&tier=free&club=false&require=false&trial=true -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+    <!-- Script RegisterPlugin Start-->
     <script>
-      const seriesButton = document.getElementById("seriesButton");
-const parallelButton = document.getElementById("parallelButton");
-const lampContainer = document.getElementById("lampContainer");
-
-seriesButton.addEventListener("click", () => {
-  lampContainer.innerHTML = ""; // Kosongkan kontainer lampu
-  const seriesLamp = document.createElement("div");
-  seriesLamp.classList.add("lamp", "series");
-  lampContainer.appendChild(seriesLamp);
-
-  const toggleButton = document.createElement("button");
-  toggleButton.textContent = "ON/OFF";
-  toggleButton.addEventListener("click", () => {
-    seriesLamp.classList.toggle("on"); // Nyalakan/matikan lampu
-  });
-  lampContainer.appendChild(toggleButton);
-});
-
-parallelButton.addEventListener("click", () => {
-  lampContainer.innerHTML = ""; // Kosongkan kontainer lampu
-  for (let i = 0; i < 5; i++) {
-    const lamp = document.createElement("div");
-    lamp.classList.add("lamp", "parallel");
-    lampContainer.appendChild(lamp);
-
-    // Tambahkan tombol untuk setiap lampu
-    const button = document.createElement("button");
-    button.textContent = `ON/OFF ${i + 1}`;
-    button.addEventListener("click", () => {
-      lamp.classList.toggle("on"); // Nyalakan/matikan lampu
-    });
-    lampContainer.appendChild(button);
-  }
-});
+      gsap.registerPlugin(TextPlugin);
+      gsap.to(".display-4", { duration: 2, delay: 1, text: "Lestari Widodo" });
+      gsap.to(".lead", { duration: 2, delay: 2.5, text: "Freelancer | Entrepreneur" });
+      gsap.from(".jumbotron img", { duration: 1.5, rotateY: 360, opacity: 0 });
+      gsap.from(".navbar", { duration: 1, y: "-100", opacity: 0, ease: "bounce" });
+      // gsap.from(".display-4", { duration: 1, x: "-100", opacity: 0, delay: 1, ease: "back" });
     </script>
+    <!-- Script RegisterPlugin End-->
 
-     </body>
+    <!-- Script GSAP Animation End-->
+    <!-- Script Start untuk tombol kirim, loading, alert, dll di section Contact Me -->
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbwtJC-sSFYLjm3HTaHfui_uN_P6tyuIkApgipxxgcXENx06Ubk8rduk0D7XGjo0TTw/exec";
+      const form = document.forms["portfolio_widodo_contact_pesan"];
+      const btnKirim = document.querySelector(".btn-kirim");
+      const btnLoading = document.querySelector(".btn-loading");
+      const myAlert = document.querySelector(".my-alert");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // ketika tombol submit/kirim diklik, tampilkan tombol loading dan hilangkan tombol kirim
+        btnLoading.classList.toggle("d-none");
+        btnKirim.classList.toggle("d-none");
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            // tampilkan tombol kirim, hilangkan tombol loading
+            btnLoading.classList.toggle("d-none");
+            btnKirim.classList.toggle("d-none");
+            // tampilkan alert
+            myAlert.classList.toggle("d-none");
+            // reset isian di form pesan
+            form.reset();
+            console.log("Success!", response);
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+    <!-- Script End untuk tombol kirim, loading, alert, dll di section Contact Me -->
+
+    
+  </body>
 </html>
